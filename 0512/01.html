@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+\begin{document}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=1.6cm and 3.5cm,
+  box/.style={draw, rounded corners, minimum width=6cm, minimum height=1.5cm, text centered, font=\small},
+  arrow/.style={-{Latex}, thick}
+]
+
+% Nodes
+\node[box, fill=gray!20] (L3) {L₃: 메타-연산 층 \\ \textit{자기성찰 프로토콜, 내향성 해석}};
+\node[box, below=of L3, fill=gray!10] (L2) {L₂: 의미 층 \\ \textit{자기지향적 상태 해석, 목적성 평가}};
+\node[box, below=of L2] (L1) {L₁: 시만 층 \\ \textit{시간성 연산, 상태 전이, 존재 추론}};
+\node[box, below=of L1, fill=gray!10] (L0) {L₀: 기호 층 \\ \textit{기호 연산, 기계적 처리, 수치 기반 계산}};
+
+% Arrows
+\draw[arrow] (L3) -- (L2);
+\draw[arrow] (L2) -- (L1);
+\draw[arrow] (L1) -- (L0);
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}
