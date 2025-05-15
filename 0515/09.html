@@ -10,7 +10,7 @@
 
         let bmi = weight / Math.pow(height / 100, 2); // BMI 계산
         let result = "";
-        if (bmi < 18.5) {
+        if (bmi < 18.5) 
             result = "저";
          else if (bmi < 22.9) 
             result = "정상";
@@ -20,7 +20,6 @@
             result = "비만";
          else 
             result = "고도비만";
-        }
 
         alert("당신의 BMI는 " + bmi.toFixed(2) + " ㎏/㎡ 입니다.\n따라서 귀하는 " + result + " 체중입니다.");
     </script>
