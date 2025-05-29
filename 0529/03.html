@@ -2,39 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gradient Box</title>
-    <style>
-        #box {
-            width: 256px;
-            height: 256px;
-            border: 1px solid black;
-            overflow: hidden;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script>
-        function applyGradient() {
-            let output = "";
-            for (let i = 0; i < 256; i++) {
-                output += "<div></div>";
-            }
-            document.getElementById("box").innerHTML = output;
+        let output = "";
+        let totalDiv;
+        let divs; 
 
-            let divs = document.querySelectorAll("#box div");
-            for (let i = 0; i < divs.length; i++) {
-                divs[i].style.height = "1px";
-                divs[i].style.backgroundColor = "rgb(" + i + "," + i + "," + i + ")";
+        function init(){
+            totalDiv = document.getElementById("totalDiv");
+            for(let i=0; i < 256; i++){
+                output += "<div></div>"
+            }
+        }
+        function changeGradation(){
+            totalDiv.innerHTML = output;
+
+            divs = document.querySelectorAll("div");
+            for(let i=1; i<divs.length; i++){
+                divs[i].style.height="1px";
+                divs[i].style.backgroundColor = "rgb("+ (i-1) +", "+ (i-1) +", "+ (i-1) +")"
             }
         }
 
-        function removeGradient() {
-            document.getElementById("box").innerHTML = "";
+        function reset(){
+            for(let i=1; i < 257; i++){
+                divs[i].style.backgroundColor = "rgb(255, 255, 255)";
+            }
+            totalDiv.style.border = "1px solid rgb(0, 0, 0)";
         }
     </script>
+    <style>
+        #totalDiv{
+            width: 256px;
+            height: 256px;
+            border: 1px solid rgb(0, 0, 0);
+            margin: 0;
+            padding: 2px;
+        }
+    </style>
 </head>
-<body>
-    <button onclick="applyGradient()">그라데이션 넣기</button>
-    <button onclick="removeGradient()">그라데이션 없애기</button>
-
-    <div id="box"></div>
+<body onload="init()">
+    <hr>
+    <button onclick="changeGradation()">Gradation</button>
+    <button onclick="reset()">Reset</button>
+    <hr>
+    <div id="totalDiv"></div>
 </body>
 </html>
