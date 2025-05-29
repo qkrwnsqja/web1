@@ -28,9 +28,22 @@
             document.body.setAttribute("data-cheerup", "Ive is the best~~");
             alert(document.body.getAttribute("data-cheerup"));
         }
+
+        let clock;
+         function callsetClock() {
+            clock = document.querySelector("h1");
+            setClock();
+            setInterval(setClock, 1000); 
+        }
+
+        function setClock() {
+            let now = new Date();
+            clock.innerHTML = now.toString();
+        }
+
     </script>
 </head>
-<body>
+<body onload="callsetClock()">
     <hr>
     <button onclick="ChangeImage()">장원영</button>
     <button onclick="reset()">Reset</button>
@@ -45,5 +58,8 @@
     </select>
     <hr>
     <img id="img1">
+    <hr>
+    <h1></h1>
+    <hr>
 </body>
 </html>
