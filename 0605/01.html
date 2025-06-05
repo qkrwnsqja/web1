@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function callAlert() {
+            alert("알림메시지");
+        }
+
+        function overImage(img1) {
+            img1.src = "imgs/images1.jpg";
+        }
+
+         function outImage(img1) {
+            img1.src = "imgs/images4.jpg";
+        }
+
+         function overImageId() {
+            let img1 = document.getElementById("img3");
+            img1.src = "imgs/images2.jpg";
+        }
+
+         function outImageId() {
+            let img1 = document.getElementById("img3");
+            img1.src = "imgs/images1.jpg";
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="callAlert()">알림메시지</button>
+    <img src="imgs/images1.jpg" onmouseover="this.src='imgs/images2.jpg'" onmouseout="this.src='imgs/images3.jpg'"/>
+    <br><br>
+    <img src="imgs/images2.jpg" onmouseover="overImage(this)" onmouseout="outImage(this)"/>
+        <br><br>
+    <img src="imgs/images3.jpg" onmouseover="overImageId()" onmouseout="outImageId()" id="img3"/>
+</body>
+</html>
